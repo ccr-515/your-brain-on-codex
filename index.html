@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Overview · Your Brain on Codex (v2)</title>
+  <title>Overview · Your Brain on Codex</title>
   <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
 <body>
@@ -12,7 +12,7 @@
     <div class="overlay"></div>
     <div class="titlewrap">
       <h1>Your Brain on Codex</h1>
-      <div class="meta">A workflow essay about continuity, momentum, and finishing.</div>
+      <div class="meta">An observational account of how agentic coding tools reshape planning, attention, and verification.</div>
     </div>
   </header>
 
@@ -32,111 +32,147 @@
       <article class="content">
         <p class="small">Overview</p>
 
-        <h2>Your brain has two problems: friction and drift</h2>
+        <h2>Motivation</h2>
         <p>
-          Most people think software gets hard because the code is hard. That is only half true. The other half is human.
-          The real bottlenecks are the ones you feel: you lose momentum, you forget what you were doing, you hesitate to start,
-          you get interrupted, you reopen a file and the thread is gone.
+          Software development is constrained as much by cognition as by code. The limiting factors are often not
+          language features or compute, but attention, working memory, interruption costs, and the friction of
+          translating intent into reliable implementation.
         </p>
         <p>
-          Codex changes that. Not by making you smarter, and not by replacing you. It changes the shape of effort.
-          It turns a lot of work that used to be manual, slow, and fragile into work that is fast, inspectable, and repeatable.
-          When the loop gets tighter, your thinking gets cleaner.
+          Codex belongs to a class of tools that converts natural language intent into executable edits, with an interface
+          oriented around tasks, diffs, and iterative refinement. This project page documents a workflow-level view of that
+          shift: what changes when code production becomes partially delegated, and the developer’s role concentrates on
+          specification, verification, and integration.
         </p>
 
         <div class="callout">
-          <div><strong>Claim</strong></div>
+          <div><strong>Working hypothesis</strong></div>
           <div class="small">
-            The main benefit of Codex is not speed. It is continuity. It keeps the thread of your intention alive long enough for you to finish.
+            The primary effect of Codex is not raw speed, but reduced restart cost: fewer cycles lost to reloading context,
+            re-deriving implementation details, and reestablishing momentum after interruptions.
           </div>
         </div>
 
-        <h2>What Codex does to the workflow</h2>
+        <h2>Conceptual model</h2>
         <p>
-          Traditional coding is a single lane road. You are the planner, the typist, the debugger, the tester, and the reviewer.
-          That sounds pure, but it forces constant context switching. You pay restart costs all day.
-        </p>
-        <p>
-          Codex introduces parallelism. You keep your mind on the higher level decision while the system pushes implementation forward.
-          It is closer to how a small team works, except the junior never gets tired and never forgets what you just asked.
+          We treat development as a loop with four recurring phases: intent formulation, implementation, evaluation, and
+          revision. Historically, one person performs all four serially. Agentic tools introduce partial parallelism by
+          allowing implementation steps to proceed while intent and evaluation remain active in the developer’s attention.
         </p>
 
-        <h3>Three modes</h3>
+        <h3>Three operating modes</h3>
 
-        <h3>1) Manual mode</h3>
+        <h3>Manual mode</h3>
         <p>
-          You write everything yourself. You keep total control, but you spend a huge percentage of the day on mechanical steps:
-          wiring, renaming, adapting patterns you already know, repeating setup across projects.
+          The developer writes and revises code directly. This maximizes local control, but allocates a large fraction of
+          attention to mechanics: scaffolding, wiring, rote transformations, and incremental debugging that competes with
+          planning.
         </p>
 
-        <h3>2) Search mode</h3>
+        <h3>Search mode</h3>
         <p>
-          You pull examples from docs and repos, then stitch. Powerful but scattered. You still do the integration labor,
-          and the mental overhead is high.
+          The developer composes solutions from existing sources. This can accelerate learning and reduce error, but often
+          produces fragmented context. Integration work becomes the dominant cost, and the resulting rationale may be
+          implicit rather than explicit.
         </p>
 
-        <h3>3) Codex mode</h3>
+        <h3>Codex mode</h3>
         <p>
-          You describe the result, Codex drafts the path, and you steer through review.
-          The work shifts away from typing and toward judgment: constraints, tradeoffs, failure modes, and taste.
+          The developer expresses intent, constraints, and evaluation criteria; Codex drafts and iterates; the developer
+          validates through review and tests. The center of gravity shifts from transcription to supervision. This does not
+          remove responsibility; it reassigns where responsibility is exercised.
         </p>
 
         <div class="figure">
           <img src="./assets/img/figure.svg" alt="Workflow figure" />
         </div>
 
-        <h2>The psychological shift: starting becomes cheap</h2>
+        <h2>What changes in practice</h2>
+
+        <h3>1. Initiation costs decrease</h3>
         <p>
-          Starting is where most projects die. People do not fail because they are incapable.
-          They fail because the first 30 minutes feel like friction, and friction triggers avoidance.
-          Codex lowers the price of starting by letting you begin at the level of intent.
-        </p>
-        <p>
-          If you start faster, you iterate more. If you iterate more, you correct sooner. If you correct sooner, you ship.
+          Many projects stall at initiation: the first steps feel like friction, and friction triggers avoidance.
+          When the initial draft can be produced from a compact description, starting becomes cheaper, and iteration becomes
+          more frequent.
         </p>
 
-        <h2>Where it helps most</h2>
+        <h3>2. The bottleneck moves to verification</h3>
+        <p>
+          When code generation accelerates, the binding constraint becomes review quality. The developer’s effectiveness is
+          increasingly determined by their ability to detect subtle regressions, to maintain invariants, and to formalize
+          expectations into tests.
+        </p>
+
+        <h3>3. Specifications become first-class</h3>
+        <p>
+          Delegation rewards clarity. Over time, developers tend to write more explicit constraints and edge cases, because
+          ambiguity produces drift. In this sense, Codex is a pressure toward externalized reasoning: what used to remain
+          implicit must be stated.
+        </p>
+
+        <h2>Evaluation criteria</h2>
+        <p>
+          This project page focuses on workflow outcomes rather than claims about the brain. The most relevant indicators
+          are operational.
+        </p>
         <ul>
-          <li><strong>Boilerplate without boredom.</strong> Scaffolding, wiring, conversions, tests.</li>
-          <li><strong>Momentum preservation.</strong> Fewer stalls, fewer abandoned branches.</li>
-          <li><strong>Turning vague into concrete.</strong> A rough idea becomes a first implementation you can react to.</li>
-          <li><strong>Scope compression.</strong> Try two approaches quickly, choose with evidence.</li>
+          <li>Time to first working version</li>
+          <li>Number of context switches per feature</li>
+          <li>Diff size and review burden</li>
+          <li>Test pass rate across iterations</li>
+          <li>Rate of regressions discovered post-merge</li>
         </ul>
 
-        <h2>Where it hurts if you get lazy</h2>
+        <h2>Failure modes</h2>
+        <p>
+          The same mechanisms that reduce friction can amplify error if verification is weak.
+        </p>
         <ul>
-          <li><strong>Blind approval.</strong> If you accept diffs you do not understand, debt grows fast.</li>
-          <li><strong>Overconfidence.</strong> Compiles is not correctness.</li>
-          <li><strong>Spec drift.</strong> Long tasks without checkpoints wander unless you steer.</li>
+          <li><strong>Uninspected acceptance.</strong> Approving diffs without comprehension increases defect density.</li>
+          <li><strong>Spec drift.</strong> Long tasks without checkpoints can diverge from intent.</li>
+          <li><strong>Overgeneralization.</strong> Correct-looking code can be wrong under edge conditions.</li>
+          <li><strong>Debt acceleration.</strong> High throughput can accumulate architectural inconsistency.</li>
         </ul>
 
         <div class="callout">
-          <div><strong>Rule</strong></div>
-          <div class="small">If you cannot explain what the diff does, you are not done. You are gambling.</div>
+          <div><strong>Practical constraint</strong></div>
+          <div class="small">
+            The quality ceiling is review. If you cannot explain what changed and why, the loop is incomplete.
+          </div>
         </div>
 
-        <h2>How to use Codex without becoming a passenger</h2>
+        <h2>Recommended operating procedure</h2>
         <ol>
-          <li><strong>State intent.</strong> Inputs, outputs, constraints, edge cases.</li>
-          <li><strong>Ask for a plan first.</strong> Then correct the plan.</li>
-          <li><strong>Use checkpoints.</strong> Stop after tests, after API layer, after UI wiring.</li>
-          <li><strong>Review diffs like money is on the line.</strong></li>
-          <li><strong>Lock it with tests.</strong> Tests are the memory that survives your day.</li>
+          <li><strong>State intent precisely.</strong> Inputs, outputs, invariants, and failure cases.</li>
+          <li><strong>Request a plan.</strong> Validate the decomposition before implementation proceeds.</li>
+          <li><strong>Use checkpoints.</strong> Stop at stable milestones and reassess alignment.</li>
+          <li><strong>Review diffs structurally.</strong> Look for invariants, not just passing examples.</li>
+          <li><strong>Encode expectations.</strong> Tests serve as durable memory for both humans and tools.</li>
         </ol>
 
         <h2>FAQ</h2>
         <div class="faq">
           <details>
-            <summary>Does Codex make you lazy</summary>
-            <p>It can, if you let it. The healthier pattern is spending effort where it matters. Typing less is not thinking less.</p>
+            <summary>Is this primarily a productivity tool or a learning tool</summary>
+            <p>
+              Both. In the short term it reduces mechanical effort. Over time it can improve habits around specification and
+              verification, if the developer treats review and testing as non-negotiable.
+            </p>
           </details>
+
           <details>
-            <summary>Best first task to delegate</summary>
-            <p>Something you already understand but do not want to do: refactoring, wiring, tests, setup. You will judge quality fast.</p>
+            <summary>What determines whether Codex helps or harms</summary>
+            <p>
+              The rigor of evaluation. Delegation increases throughput; evaluation determines correctness.
+            </p>
           </details>
+
           <details>
-            <summary>Main skill Codex demands</summary>
-            <p>Specifying and reviewing. Clear constraints and ruthless diff review.</p>
+            <summary>What is a good first use case</summary>
+            <p>
+              Tasks with clear success criteria and low ambiguity, such as scaffolding, refactors with tests, migrations, and
+              adding test coverage for existing behavior.
+            </p>
           </details>
         </div>
       </article>
